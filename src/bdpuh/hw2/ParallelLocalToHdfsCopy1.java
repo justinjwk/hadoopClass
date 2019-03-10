@@ -21,13 +21,13 @@ public class ParallelLocalToHdfsCopy1 {
 
     public static void main(String args[]) throws InterruptedException {
 
-//        Path localPath = new Path(args[0]);
-//        Path hdfsPath = new Path(args[1]);
-//        int numOfThreads = Integer.parseInt(args[2]);
+        Path localPath = new Path(args[0]);
+        Path hdfsPath = new Path(args[1]);
+        int numOfThreads = Integer.parseInt(args[2]);
 
-        Path localPath = new Path("/home/hdadmin/programming/test");
-        Path hdfsPath = new Path("/test");
-        int numOfThreads = 2;
+//        Path localPath = new Path("/home/hdadmin/programming/test");
+//        Path hdfsPath = new Path("/test");
+//        int numOfThreads = 2;
 
         ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numOfThreads);
 
@@ -82,13 +82,12 @@ public class ParallelLocalToHdfsCopy1 {
         if (localFiles != null) {
             for(File file: localFiles) {
 
-                FileSystem finalHdfsFileSystem = hdfsFileSystem;
                 FileSystem finalLocalFileSystem = localFileSystem;
-
+                FileSystem finalHdfsFileSystem = hdfsFileSystem;
                 executor.submit(()-> {
 
                     fileToRead[0] = new Path(file.getPath());
-                    compressedFileToWrite[0] = new Path(hdfsPath, fileToRead[0].getName() + ".gz");
+                    compressedFileToWrite[0] = new Path(hdfsPath, fileToRead[0].getName()+ ".gz");
 
                     try {
                         // Open a File for Reading
@@ -106,6 +105,7 @@ public class ParallelLocalToHdfsCopy1 {
                     }
                 });
             }
+
             executor.shutdown();
             executor.awaitTermination(10, TimeUnit.SECONDS);
 
@@ -120,6 +120,4 @@ public class ParallelLocalToHdfsCopy1 {
             }
         }
     }
-
-
 }
