@@ -14,5 +14,5 @@ do
   CLASSPATH=$CLASSPATH:$f
 done
 JAR=`find out -name *.jar`
-java -classpath ${CLASSPATH}:$JAR bdpuh.hw2.ParallelLocalToHdfsCopy1 /home/hdadmin/programming/test /test 3
+java -classpath ${CLASSPATH}:$JAR bdpuh.hw2.ParallelLocalToHdfsCopy /home/hdadmin/programming/test /test 2
 

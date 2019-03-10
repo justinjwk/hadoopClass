@@ -18,13 +18,13 @@ public class ParallelLocalToHdfsCopy {
 
     public static void main(String args[]) {
 
-//        Path localPath = new Path(args[0]);
-//        Path hdfsPath = new Path(args[1]);
-//        int numOfThreads = Integer.parseInt(args[2]);
+        Path localPath = new Path(args[0]);
+        Path hdfsPath = new Path(args[1]);
+        int numOfThreads = Integer.parseInt(args[2]);
 
-        Path localPath = new Path("/home/hdadmin/programming/test");
-        Path hdfsPath = new Path("/test");
-        int numOfThreads = 2;
+//        Path localPath = new Path("/home/hdadmin/programming/test");
+//        Path hdfsPath = new Path("/test");
+//        int numOfThreads = 2;
 
         Configuration configuration = new Configuration();
 
