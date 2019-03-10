@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="parallelLocalToHdfsCopy">
+    <output-path>$PROJECT_DIR$/out/artifacts/parallelLocalToHdfsCopy</output-path>
+    <root id="archive" name="parallelLocalToHdfsCopy.jar">
+      <element id="module-output" name="ParalleLocalToHdfsCopy" />
+    </root>
+  </artifact>
+</component>
